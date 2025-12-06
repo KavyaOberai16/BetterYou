@@ -1,0 +1,716 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF8F0; /* warm light background */
+    font-family: 'Segoe UI', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    flex: 1;
+}
+h1 { font-size: 3rem; font-weight: 700; color: #333; margin-bottom: 0.5rem; }
+h3 { font-size: 1.5rem; font-weight: 500; color: #666; margin-bottom: 2rem; }
+h4 { font-size: 1.2rem; font-weight: 600; color: #444; margin-bottom: 1rem; }
+
+/* Carousel */
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    background-color: #FFEFD5; 
+}
+.carousel-viewport {
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
+}
+
+.card {
+    flex: 0 0 22%;
+    margin: 0 1%;
+    transition: transform 0.3s;
+    background-color: #FFFFFF;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 20rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.card {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.8s ease forwards;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    background-color: #FFF5EE;
+}
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-prev { left: 0; }
+.carousel-next { right: 0; }
+
+.carousel-container {
+    position: relative;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-img-top {
+    margin: 10px 0;
+    border-radius: 8px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card.active {
+    transform: scale(1.08);
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: #FF6B6B; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.fa-brands {
+    color: #FFD93D; /* cheerful yellow */
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: white;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #FFD93D;
+}
+
+
+/* footer */
+.footer-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #FF6B6B; /* calming teal */
+    display: flex;
+    flex-direction: column; /* stack items vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-info-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0.2rem 0;
+}
+
+.footer-info-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-info-socials i {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    margin: 0 0.5rem;
+    color: white;
+}
+.footer-info-socials i:hover{
+    color: #FFD93D; 
+    font-size: 1.5rem;
+}
+
+.footer-info-brand {
+    color: white;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+h1{
+    text-align: center;
+    font-family: 'Inter','Poppins',sans-serif;
+    margin-top: 3rem;
+}
+
+/* main page background*/
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  /* Center everything */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+  text-align: center;
+  z-index: 1;
+}
+
+.blob {
+  animation: glowShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowShift {
+/* 0%: Almost invisible, no movement, normal size */
+  0%   { opacity: 0.05; transform: translate(0, 0) scale(1); } 
+/* 50%: Fully visible, moves left+down, grows 20% */
+  50%  { opacity: 1; transform: translate(-50px, 35px) scale(1.2); }
+/* 100%: Fades out, moves right+up, back to normal size */
+  100% { opacity: 0.05; transform: translate(50px, -35px) scale(1); }
+}
+
+.hero-text {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-text button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background-color: #FF6B6B;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+.hero-text button:hover{
+    color: #FFD93D; 
+}
+.background-blobs {
+  position: fixed;      /* stays in place while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.features-heading {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+  text-shadow: 0 3px 10px rgba(255, 217, 61, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.features-section {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* main page text  */
+.dynamic-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  padding: 0;
+}
+
+.dynamic-text > span:not(#typewriter) {
+  display: none !important;
+}
+
+#typewriter {
+  display: block;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.4rem;
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+  max-width: 90ch;
+  text-align: center;
+}
+
+.btn {
+  background-color: #FF6B6B;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.btn:hover { 
+    background-color: #FFD93D; color: #333; transform: translateY(-2px); 
+}
+.feature-card{
+    /* pehle hee opacity invisble kardo, then since i want to appear from downwards, we hv used Y transform, acrd ko pehle hee 60px down kardiya */
+    opacity: 0; 
+    transform: translateY(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    width: 22rem;
+    padding: 2rem;
+    margin: 1rem auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #222;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+/* then show tab hee hoga jab niche scroll karenge, its opacity will shift from 0 to 1 through transition used above and also the card goes from down to up*/
+.feature-card.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+/* hobbyPage */
+.main-area{
+    font-family: 'Inter','Poppins',sans-serif;
+    background-color: #FFF5EE;
+}
+.cardOne{
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);
+    padding: 1.5rem;
+
+}
+.cardTwo{
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);
+    padding: 1.5rem;
+}
+.cardThree{
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);
+    color: #333;
+}
+.cardFour{
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);
+    padding: 1.5rem;
+}
+.cardFive{
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);
+    padding: 1.5rem;
+}
+.main-area > div {
+  margin-bottom: 2rem;
+}
+
+/* notepad */
+.notepad{
+    margin-bottom: 20px;
+    justify-content: center;
+
+}
+.mood-tracker ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+.form-floating{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  resize: none;
+}
+.mood-recommendations h4 { 
+ margin-bottom: 1rem; 
+}
+.video-section .card:hover { transform: scale(1.03); box-shadow: 0 6px 18px rgba(255, 107, 107, 0.3); }
+
+
+/* streak styling */
+.streak-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;        /* keep all months in one row */
+    gap: 15px;                /* space between months */
+    overflow-x: auto;         /* allow horizontal scroll */
+    justify-content: center; /* start row at left edge */
+    padding-left: 0;          /* remove extra left padding */
+    margin: 0;                /* remove auto centering */
+}
+
+/* .streak-container::-webkit-scrollbar { */
+    /* display: none;         hide scrollbar in Chrome/Safari */
+/* } */
+
+.month {
+    width: 20%;        /* each month stays its own compact block */
+    text-align: center;    /* center heading + grid */
+}
+
+.month h5 {
+    font-size: 16px;       /* slightly larger month label */
+    margin-bottom: 6px;    /* a bit more breathing room */
+    color: #555;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 14px); /* 7 columns, slightly bigger */
+    gap: 3px;              /* small tight gap like LC */
+    justify-content: center;
+}
+
+.day {
+    width: 14px;           /* slightly smaller than before */
+    height: 14px;
+    background-color: white;  /* default grey */
+    border-radius: 2px;    /* smooth corners */
+    /* make sure no text is inside this div */
+}
+/* streak latest cell color */
+.mood-1 { background-color: darkblue; } /* very sad */
+.mood-2 { background-color:  rgb(116, 116, 248); } /* sad */
+.mood-3 { background-color: grey; } /* neutral */
+.mood-4 { background-color:  orange; } /* happy */
+.mood-5 { background-color:  rgb(245, 52, 84); } /* very happy */
+
+
+/* mood emojis tracker font styling when we hover  */
+.mood-tracker ul li button{
+    font-size: 3rem;
+    background: none;
+    border: none;
+    transition: transform 0.2s ease;
+}
+.mood-tracker ul li button:hover{ 
+    transform: scale(1.4);
+}
+
+/* notepad buttons styling */
+.notepad-buttons{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* youtube vides display */
+.mood-recommendations h4{
+    text-align: center;
+}
+.video-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;          /* ensures all cards stay in one row */
+    overflow-x: auto;           /* horizontal scroll if cards overflow */
+    gap: 1rem;                  /* space between cards */
+    padding-bottom: 1rem;       /* give room for card buttons */
+}
+
+.card {
+    flex: 0 0 auto;             /* card width stays fixed, no shrinking */
+    width: 18rem;               /* choose a fixed width for consistency */
+    display: flex;
+    flex-direction: column;     /* so content stacks vertically */
+    justify-content: space-between; /* keeps button at bottom */
+    height: auto;               /* remove any fixed height */
+    box-sizing: border-box;     
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;        
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2rem;
+    max-height: calc(1.2rem * 3);
+}
+
+/* flash cross btn styling */
+.alert{
+    position: relative;
+    padding-right: 2.5rem;
+    font-size: large;
+}
+.btn-close{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+/* --- Continuous animated blob background fix --- */
+html, body {
+  position: relative;
+  z-index: 0;
+}
+
+/* ensure blobs stay behind all content but visible through all sections */
+.background-blobs {
+  position: fixed;       /* stays in place during scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;            /* below content but above body background */
+  pointer-events: none;  /* so it doesn’t block clicks */
+  overflow: hidden;
+}
+
+/* make sure hero text and cards appear above blobs */
+.footer-info {
+  position: relative;
+  z-index: 1;
+}
+.features-section {
+  margin-top: -4rem;  /* pull cards upward */
+  padding-top: 0;     /* avoid extra gap */
+}
+.features-heading {
+  margin-top: 1rem;   /* keep small breathing space */
+}
+.users-track {
+  position: relative;
+  z-index: 2;       /* ensures it's above background */
+  padding: 4rem 0;  /* gives breathing space */
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
+}
+.users-track p {
+  font-size: 1.5rem;
+  color: #444;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+#userCount {
+  color: #FF6B6B;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* my page styling */
+.myhobbiespage{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+.log-records{
+    background: linear-gradient(135deg, #FFF3E0, #FFD5C2);;
+}
+
+/* the trash styling */
+.delete-trash{
+    font-size: large;
+    cursor: pointer;
+}
+/* mobile display main page fixation */
+#navbarNav {
+  position: relative;
+  z-index: 9999;
+  background-color: #FF6B6B;
+}
+
+.blob {
+  position: relative;
+  z-index: 0;
+}
+/* Prevent word breaking everywhere */
+#typewriter {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  #typewriter {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    max-width: 90%;
+  }
+}
+/* Mobile layout for carousel */
+@media (max-width: 600px) {
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;     /* ensures they float on top */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;            /* above cards */
+  }
+
+  .carousel-prev {
+    left: 5px;               /* small left offset */
+  }
+
+  .carousel-next {
+    right: 5px;              /* small right offset */
+  }
+
+  .carousel-prev button,
+  .carousel-next button {
+    background: #FF6B6B;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* Hobby Page Mobile Fixes */
+@media (max-width: 768px) {
+
+  /* all content cards should become full width on phones */
+  .cardOne,
+  .cardTwo,
+  .cardThree,
+  .cardFour,
+  .cardFive {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* make textarea full width */
+  .notepad .form-control {
+    width: 100%;
+  }
+
+  /* mood tracker buttons: space evenly */
+ .mood-tracker ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .mood-tracker li {
+    list-style: none;
+  }
+
+  .mood-tracker button {
+    font-size: 1.5rem; /* smaller for mobile */
+    padding: 0.3rem;
+  }
+
+  /* video cards should fill the screen properly */
+  .video-section .card {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  /* streak months: show 2 per row instead of 12 squeezed */
+  .streak-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .streak-container .month {
+    min-width: 180px; /* enough for name + days */
+    scroll-snap-align: start;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+
+  /* If days overflow, allow them to wrap */
+  .streak-container .days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+

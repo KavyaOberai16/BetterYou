@@ -1,0 +1,11 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<!-- copied code from bootstrap -->
+<!-- here we r creating a page for showing error in more precise way -->
+
+<div class="row">
+    <div class="alert alert-danger col-6 offset-3" role="alert">
+        <!-- the error handler that we created in app.js there we hv used message and from there we r using here -->
+        <p class="alert-handling"> <%= message %> </p>
+    </div>
+</div>

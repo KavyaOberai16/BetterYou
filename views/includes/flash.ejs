@@ -1,0 +1,12 @@
+<% if(success && success.length>0){ %>
+    <div class="alert alert-info col-6 offset-3 mt-3 text-center" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close ms-3" aria-label="Close"></button>
+</div>
+<% } %>
+<% if(error && error.length>0){%>
+    <div class="alert alert-danger col-6 offset-3 mt-3 text-center" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close ms-3" aria-label="Close"></button>
+</div>
+<%}%>

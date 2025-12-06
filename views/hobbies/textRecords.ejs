@@ -1,0 +1,37 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records</title>
+</head>
+<body>
+  <h1>Your Records for <%= hobby.hobby %></h1>
+  <br>
+
+  <% 
+    const moodEmojis = {
+      1: "😔",
+      2: "😕",
+      3: "😑",
+      4: "😊",
+      5: "😄"
+    };
+  %>
+
+  <div class = "log-records col-6 offset-3">
+    <% for (let k = 0; k < logs.length; k++) { %>
+      <% let log = logs[k]; %>
+      <ul>
+        <li><b>Your entry:</b> <%= log.text %></li>
+        <li><b>Your mood:</b> <%= moodEmojis[log.mood] %></li>
+        <li><b>AI Advice:</b><%= log.groqOutput %></li>
+        <li><b>Date:</b> <%= log.createdAt.toDateString() %></li>
+      </ul>
+      <hr>
+    <% } %>
+  </div>
+</body>
+</html>

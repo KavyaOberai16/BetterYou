@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="background-blobs">
+<!-- the blow svg code has been aquired for svg file thorugh text editor in vs code -->
+    <svg id="visual" viewBox="0 0 900 600" style="overflow: visible;" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs><filter id="blur1" x="-10%" y="-10%" width="120%" 
+height="120%"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" 
+in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="161" 
+result="effect1_foregroundBlur"></feGaussianBlur></filter></defs><rect width="900" height="600" fill="#FFE1A8"></rect>
+<g filter="url(#blur1)">
+<circle class="blob" style="animation-delay: 0s;" cx="808" cy="281" r="357" fill="#FF6B6B"></circle>
+<circle class="blob" style="animation-delay: 2s;" cx="377" cy="568" r="357" fill="#FFD93D"></circle>
+<circle class="blob" style="animation-delay: 4s;" cx="482" cy="310" r="357" fill="#4ECDC4"></circle>
+<circle class="blob" style="animation-delay: 6s;" cx="460" cy="14" r="357" fill="#FF6B6B"></circle>
+<circle class="blob" style="animation-delay: 8s;" cx="764" cy="32" r="357" fill="#FFD93D"></circle>
+<circle class="blob" style="animation-delay: 10s;" cx="205" cy="114" r="357" fill="#4ECDC4"></circle>
+
+</g></svg>
+</div>
+
+<section class="hero-section">
+    <div class="hero-text"> 
+        <div class="dynamic-text">
+        <span>Welcome to BetterYou</span>
+        <span>Consistency Made Simpler</span> 
+        <span>Progress One Step At A Time</span> 
+        <span>Plan.Track.Achieve</span> 
+        <span>Start Your Journey Today!</span> 
+        <span id="typewriter"></span>
+        </div>
+        <br>
+        <button onclick="window.location.href='/hobbies';">Start</button>
+        <br>
+        <h6 class="features-heading">Discover Everything You'll Get With BetterYou</h6>
+    </div>
+</section>
+<section class="features-section">
+<div class="feature-card" style="width: 30rem;">
+  <div class="card-body">
+    <h5 class="card-title">Personalized AI Reflection</h5>
+    <p class="card-text">Smart, uplifting feedback after every entry — crafted to help you improve daily.</p>
+  </div>
+</div>
+<div class="feature-card" style="width: 30rem;">
+  <div class="card-body"> 
+    <h5 class="card-title">Content That Matches You</h5>
+    <p class="card-text">Discover mood-aligned videos and ideas to stay inspired and balanced.</p>
+  </div>
+</div>
+<div class="feature-card" style="width: 30rem;">
+  <div class="card-body"> 
+    <h5 class="card-title">Consistency Simplified</h5>
+    <p class="card-text">Visual streaks and milestones keep your motivation alive every day.</p>
+  </div>
+</div> 
+<div class="feature-card" style="width: 30rem;">
+  <div class="card-body">
+    <h5 class="card-title">Your Journey - Organized</h5>
+    <p class="card-text">Reflect, track, and grow — all in one clean, focused dashboard.</p>
+  </div>
+</div>
+    </section>
+    <section class="users-track">
+        <h2>Join Our Community!</h2>
+        <p><span id="userCount">0</span> people have joined BetterYou!</p>
+    </section>
+    
+
+
+

@@ -1,0 +1,162 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HobbyPage</title>
+</head>
+<body>
+    <h1 style="text-align: center;"><B><%= hobby.hobby %></B></h1>
+    <br>
+    <h3 style="text-align: center;">Track your progress, one entry at a time</h3>
+    <br>
+    <div class="main-area">
+        <!-- left section for these 3 -->
+        <div class="cardOne col-6 offset-3">
+            <form action="/hobbies/<%= hobby._id%>/dailyLogs" method="POST" novalidate class="needs-validation">
+        <div class="notepad">
+            <h4 style="text-align: center">Your Daily Log</h4>
+            <br>
+            <div class="form-floating">
+            <textarea name="text"class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
+            <label for="floatingTextarea2">How you feel about your progress today?</label>
+            <div class="invalid-feedback">Please enter your daily log </div>
+            <div class="valid-feedback">Looks Good</div>
+            <br>
+            <div class="mood-tracker">
+               <input type="hidden" id="moodInput" name="mood" required>
+               <div class="invalid-feedback">Please enter your mood</div>
+               
+                <ul>
+                    <li><button class="mood-btn" data-rating="1" aria-label="Very Sad">😔</button></li>
+                    <li><button class="mood-btn" data-rating="2" aria-label="Sad">😕</button></li>
+                    <li><button class="mood-btn" data-rating="3" aria-label="Neutral">😑</button></li>
+                    <li><button class="mood-btn" data-rating="4" aria-label="Happy">😄</button></li>
+                    <li><button class="mood-btn" data-rating="5" aria-label="Very Happy">😊</button></li>
+                </ul>
+            </div>
+            <input type="hidden" name="hobby" value="<%= hobby._id %>">
+            <br>
+            </div>
+        </div>
+        <div class="notepad-buttons">
+        <button class = "btn">Submit</button>
+        <a href="/hobbies/<%= hobby._id %>/dailyLogs" class="btn">Records</a> 
+        </div>
+      </div>
+        </form>
+        <br>
+        <!-- converted logs from js object to string format i.e so that it can be used from server to browser side easily -->
+<script> const logs = <%- JSON.stringify(logs) %>;</script>
+<!-- below is the code when mood and text has not been submitted then it will show this msg -->
+<% if (!hasTodayLog) { %>
+    <div class="cardTwo col-6 offset-3">
+       <i> Write your today's reflection to get personalized AI advice & videos!</i>
+    </div>
+<% } else { %> 
+
+ <!-- below is the ai part -->
+  <div class="cardThree col-6 offset-3">
+         <section class="ai fade-in">
+            <h4 style="text-align: center;">Your mood uplifiting and action based recommendations</h4>
+            <div class="ai">
+               <% if(groqOutput) {%>
+               <p><%= groqOutput %></p>
+               <% } %>
+            </div>
+         </section>
+         </div>
+<!-- below is the videos part -->
+      <br>
+   </b>
+        <div class="cardFour col-6 offset-3">
+        <div class="mood-recommendations">
+         <h4>Your recommendations</h4>
+         <section class="video-section">
+            <% if(videos && videos.length>0 ) { %>
+            <% for(let i = 0; i<videos.length; i++){ %>
+               <% let video = videos[i]; %>
+               <div class="card" style="width: 18rem;">
+               <img src="<%= video.snippet.thumbnails.medium.url%>" class="card-img-top" alt="...">
+               <div class="card-body">
+               <h5 class="card-title"><%= video.snippet.title%></h5>
+               <p class="card-text"><%= video.snippet.description%></p>
+               <a href="https://www.youtube.com/watch?v=<%= video.id.videoId %>" class="btn">Check Out</a>
+         </div>
+         </div>
+         <% } %>
+         <% } %>
+         </section>
+         </div>
+         </div>
+<% } %>
+<br>
+<!-- below is the streak part -->
+        <div class="cardFive col-6 offset-3">
+        <h4 style="text-align: center">Streak</h4>
+        <br>
+        <div class="streak-summary">
+        <h6>Consistence Days: 0</h6>
+        </div>
+        <br>
+        <section>
+        <div class="streak-container">
+             <div class="month">
+                <h5>January</h5>
+                <div class="days"></div>
+            </div>
+             <div class="month">
+                <h5>February</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>March</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>April</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>May</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>June</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>July</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>August</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>September</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>October</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>November</h5>
+                <div class="days"></div>
+             </div>
+             <div class="month">
+                <h5>December</h5>
+                <div class="days"></div>
+             </div>
+            </div>
+            </section>
+            </div>
+        </div>
+<!-- to do for tomorrow
+ 2. streak count
+ 3. wrapasync and then we r done 
+  -->
+</body>
+</html>

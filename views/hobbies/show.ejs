@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<h2 style="text-align: center; margin-top: 30px;"><b>Make space in your day to explore what brings you joy💖</b></h2>
+<div class="carousel-container">
+  <div class="carousel-prev">
+    <button type="button" class="btn ">‹</button>
+  </div>
+
+  <div class="carousel-viewport"> 
+    <div class="carousel-track">
+      <% for (let hobby of hobbies) { %>
+      <div class="card" style="width: 18rem;">
+          <img 
+            src="<%= hobby.image && hobby.image.url ? hobby.image.url : 'https://via.placeholder.com/300x200?text=No+Image' %>" 
+            class="card-img-top show-img" 
+            style="display: block; height: 20rem; object-fit: cover;" 
+            alt="hobby_image">
+        <div class="card-body">
+          <h5 class="card-title"><%= hobby.hobby %></h5>
+          <p class="card-text"><%= hobby.description %></p>
+          <a href="/hobbies/<%=hobby._id%>" class="btn">Start Your Journey</a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="carousel-next">
+    <button type="button" class="btn ">›</button>
+  </div>
+</div>

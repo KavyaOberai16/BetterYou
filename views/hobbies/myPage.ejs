@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<% if(hobbies.length>0){%>
+<h1>Your hobbies</h1>
+<br>
+<div class="myhobbiespage">
+<% for(let i = 0; i<hobbies.length;i++){ %>
+    <% let hobby = hobbies[i]; %>
+    <div class="card" style="width: 18rem;">
+  <img src="<%= hobby.image && hobby.image.url ? hobby.image.url : 'https://via.placeholder.com/300x200?text=No+Image' %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= hobby.hobby %> </h5>
+    <p class="card-text"><%= hobby.description %></p>
+    <div aria-placeholder="Your Streak Progress"></div>
+    <a href="hobbies/<%= hobby._id %>" class="btn">Continue </a>
+    <br>
+    <i class="fa-regular fa-trash-can delete-trash" data-id="<%= hobby._id %>"></i>
+  </div>
+</div> 
+<% } %>
+</div>
+<% } else {%>
+    <h1 style="margin-top: 15%;">You have'nt started any hobbies :(</h1>
+<% } %>
+
+
+<!-- 🔥 DELETE CONFIRMATION MODAL  -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header" style="text-align: center;">
+        <h5 class="modal-title">Delete Hobby?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" style="text-align: center;">
+        Are you sure you want to delete this hobby?<br>
+        <b>Your entire streak will be permanently lost.</b>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Yes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
