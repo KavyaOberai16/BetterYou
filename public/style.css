@@ -187,6 +187,13 @@ h1{
 }
 
 .blob {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #ff7bd5, #8f5eff);
+  filter: blur(120px);
+  border-radius: 50%;
+  z-index: -1;
   animation: glowShift 3s ease-in-out infinite alternate;
 }
 
@@ -583,11 +590,6 @@ html, body {
   z-index: 9999;
   background-color: #FF6B6B;
 }
-
-.blob {
-  position: relative;
-  z-index: 0;
-}
 /* Prevent word breaking everywhere */
 #typewriter {
   word-break: normal;
@@ -707,7 +709,16 @@ html, body {
     gap: 3px;
     justify-content: center;
   }
+  
 }
+@media (max-width: 600px) {
+  .blob {
+    width: 250px;
+    height: 250px;
+    filter: blur(90px);
+  }
+}
+
 
 
 

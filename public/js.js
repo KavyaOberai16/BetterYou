@@ -193,22 +193,24 @@ let started = false;
 async function updateCount() {
     const counterDisplay = document.getElementById('userCount');
 
-    // Fetch real count from DB
-    const res = await fetch("/user-count"); //the get route writtn in app.js , so basically db se actual user count milega
-    const data = await res.json();
-    const target = data.count;
+    try {
+        const res = await fetch("/user-count"); //ftched from 
+        const data = await res.json();
+        const target = data.count;
+        
+        let count = 0;
+        const interval = setInterval(() => {
+            count++;
+            counterDisplay.textContent = count;
 
-    let count = 0;
-
-    const interval = setInterval(() => {
-        count++;
-        counterDisplay.textContent = count;
-
-        if (count >= target) {
-            clearInterval(interval);
-        }
-    }, 40);
+            if (count >= target) clearInterval(interval);
+        }, 40);
+    } catch (err) {
+        console.log("Failed to fetch user count:", err);
+        counterDisplay.textContent = "0"; // fallback
+    }
 }
+
 
 window.addEventListener("scroll", () => {
     const countSection = document.querySelector(".users-track");
