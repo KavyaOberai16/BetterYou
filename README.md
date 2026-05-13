@@ -49,7 +49,7 @@ npm install
 
 Create a .env file and add:
 
-YOUTUBE_TOKEN=YOUR_API_KEY
+YOUTUBE_TOKEN= your own api key
 
 Start the server:
 
